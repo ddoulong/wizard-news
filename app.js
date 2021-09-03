@@ -1,7 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const postBank = require("./postBank");
-
+const PORT = process.env.PORT || 80;
 
 const app = express();
 app.use(express.static('public'));
@@ -69,7 +69,5 @@ app.use(function (err, req, res, next) {
   console.error(err.stack)
   res.status(404).send('Sorry, this page wasn\'t found!')
 })
-
-const PORT = 1337;
 
 app.listen(PORT, () => console.log('hello'))
